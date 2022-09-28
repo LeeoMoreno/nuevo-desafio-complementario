@@ -34,26 +34,6 @@ productos.forEach(producto => {
     <button id="comprar"> Comprar </button>
     `
     div.append(productoRenderizado)
-    const boton = document.getElementById(producto.id)
-    boton.addEventListener("click", () => comprarProducto(producto))
+
 
 })
-
-const comprarProducto = (producto) => {
-    let productoExiste = carrito.find(item => item.id === producto.id)
-    if(productoExiste !== undefined){
-        productoExiste.precio = productoExiste.precio + producto.precio
-        productoExiste.cantidad  = productoExiste.cantidad + 1
-    }else{
-        carrito.push({
-            id: producto.id,
-            nombre: producto.nombre,
-            precio: producto.precio,
-            imagen: producto.imagen,
-            cantidad: 1
-        })
-    }
-
-}
-
-boton.addEventListener("click", () => console.log(carrito))
