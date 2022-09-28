@@ -1,4 +1,5 @@
 const div = document.getElementById("div")
+const boton = document.getElementById("boton")
 
 
 let productos = [
@@ -28,12 +29,37 @@ let carrito = []
 productos.forEach(producto => {
     let productoRenderizado = document.createElement("div")
     productoRenderizado.innerHTML = `
-    <h3>Nombre: ${producto.nombre}</h5>
-    <span>Precio: ${producto.precio}</span>
-    <img class="imgProducto" src="${producto.imagen}">
-    <button id="comprar"> Comprar </button>
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="${producto.imagen}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">${producto.nombre}</h5>
+            <p class="card-text">Precio: ${producto.precio}</p>
+        </div>
+        <button id="${producto.id}"> Comprar </button>
+    </div>
     `
     div.append(productoRenderizado)
-
+    const boton = document.getElementById(producto.id)
+    boton.addEventListener("click", () => comprarProducto(producto))
 
 })
+
+const comprarProducto = (producto) => {
+    console.log(producto.nombre);
+    let productoExiste = carrito.find(item => item.id === producto.id)
+    if(productoExiste !== undefined){
+        productoExiste.precio = productoExiste.precio + producto.precio
+        productoExiste.cantidad  = productoExiste.cantidad + 1
+    }else{
+        carrito.push({
+            id: producto.id,
+            nombre: producto.nombre,
+            precio: producto.precio,
+            imagen: producto.imagen,
+            cantidad: 1
+        })
+    }
+
+}
+
+boton.addEventListener("click", () => console.log(carrito))
