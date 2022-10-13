@@ -1,24 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="./style.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda de Leo</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <!-- Animate CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <!-- Toastify -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- CSS propio -->
+  <link rel="stylesheet" href="./CSS/styles.css">
+  <title>Tienda New Phone</title>
 </head>
+
 <body>
-<header>
-    <h1>Bienvenido a la tineda de Videojuegos de Leo</h1>
-</header>
 
-    <div id="div"></div>
-    <button id="boton">Mostrar carrito</button>
+  <header class="d-flex justify-content-between">
+      <!-- Logo y menú de navegación -->
+      <nav class="navbar navbar-expand-lg">
+        <a href="./index.html"><img class="m-3 logoImg" src="img/logoNewPhone.png" alt="logo"></a>
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./index.html">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./pages/products.html">Productos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Buscador y carrito -->
+      <div class="d-flex align-items-center">
+        <!-- Buscador -->
+        <form class="d-flex" method="get" action="#" role="search">
+          <input id="formBuscador" class="form-control me-3" type="text" placeholder="Buscar productos...">
+          <button id="botonBuscador" type="button" class="btn btn-outline-primary"><i class="bi bi-search lupa"></i></button>
+        </form>
+        <!-- Botón Carrito -->
+        <button id="botonCarrito" type="button" class="btn btn-outline-primary position-relative align-self-center m-4" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+          <i class="bi bi-cart carrito"></i>
+          <span id="numeroCarrito" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de Compras</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div id="contenidoCarrito" class="offcanvas-body contenidoCarrito"></div>
+          <div class="d-flex align-self-center mb-3">
+            <button id="botonVaciarCarrito" type="button" class="btn btn-warning">Vaciar Carrito</button>
+          </div>
+        </div>
+      </div>
+  </header>
 
-    <!-- JavaScript Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
-    <script src="./index.js"></script>
+  <main>
+    <!-- Carrousel de inicio -->
+    <section id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/celularHero1.jpg" class="d-block w-100" alt="Portada 1">
+        </div>
+        <div class="carousel-item">
+          <img src="img/celularHero2.jpg" class="d-block w-100" alt="Portada 2">
+        </div>
+        <div class="carousel-item">
+          <img src="img/celularHero3.webp" class="d-block w-100" alt="Portada 3">
+        </div>
+        <div class="carousel-item">
+          <img src="img/celularHero4.jpg" class="d-block w-100" alt="Portada 4">
+        </div>
+        <div class="carousel-item">
+          <img src="img/celularHero5.webp" class="d-block w-100" alt="Portada 5">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </section>
+
+    <!-- Productos destacados -->
+    <h2 class="text-center mt-4">Productos Destacados</h2>
+    <section id="ultimosProductos" class="d-flex justify-content-center"></section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="d-flex justify-content-between align-items-center">
+    <a href="./index.html"><img class="m-3 imgFooter" src="img/logoNewPhone.png" alt="logo"></a>
+    <span class="txFooter ">New Phone - Moreno Leonardo ©2022 Todos los derechos reservados </span>
+    <!-- Redes -->
+    <div class="redes">
+      <a href="https://twitter.com" target="_blank"><img class="logoRedes me-3" src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter"></a>
+      <a href="https://facebook.com" target="_blank"><img class="logoRedes me-2" src="https://cdn-icons-png.flaticon.com/512/3670/3670144.png" alt="Facebook"></a>
+      <a href="https://instagram.com" target="_blank"><img class="logoRedes me-2" src="https://cdn-icons-png.flaticon.com/512/3670/3670125.png" alt="Instagram"></a>
+
+    </div>
+  </footer>
+
+  <!-- Vinculación con JS -->
+  <!-- Toastify -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- Sweet alert -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+  <!-- scripts propios -->
+  <script src="./scripts/dom.js"></script>
+  <script src="./scripts/products.js"></script>
+  <script src="./scripts/functions.js"></script>
+  <script src="./scripts/scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,64 @@
+/* Íconos Bootstrap */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+/* Reset CSS */
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+header{
+  background-color: #f4ece0;
+}
+
+
+/* Logo */
+.logoImg {
+  height: 100px;
+}
+
+/* Carrito y lupa */
+.carrito, .lupa{
+  font-size: 1.5rem;
+}
+
+.contenidoCarrito{
+  display: flex;
+  flex-direction: column;
+}
+
+/* Carrusel */
+.carousel-item img{
+  height: 45em;
+}
+
+
+/* Footer */
+footer{
+  background-color: #f4ece0;
+}
+
+.imgFooter{
+  height: 80px;
+}
+
+.txFooter{
+  color: rgb(0, 0, 0);
+}
+
+.logoRedes{
+  height: 60px;
+}
+
+/* Celulares */
+.imgCelular{
+  width: 250px;
+}
+
+.btn {
+  background-color: #f4ece0;
+  color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+}
